@@ -1,7 +1,7 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid'
 import React from 'react'
 import { Link, useRouteError } from 'react-router-dom'
-import errorImage from "../../public/Error.jpg"
+import errorImage from "/Error.jpg"
 
 const ErrorPage = () => {
 	const { error, status } = useRouteError()
