@@ -40,7 +40,7 @@ const Header = () => {
 					
 					<li className='text-blue-500 hover:text-blue-800'>
 						<NavLink
-							to='/about'
+							to='/login'
 							className={({ isActive }) => (isActive ? 'active' : 'default')}
 						>
 							Login
