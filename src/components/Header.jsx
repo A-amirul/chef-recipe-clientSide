@@ -14,8 +14,8 @@ const Header = () => {
 				{/* Logo Section */}
 				<Link to='/' className='inline-flex items-center'>
 					<UserGroupIcon className='h-6 w-6 text-blue-500' />
-					<span className='pl-2 text-xl font-bold tracking-wide text-gray-800'>
-						ShefCorner
+					<span className='pl-2 text-xl font-bold tracking-wide text-blue-900'>
+						ChefCorner
 					</span>
 				</Link>
 
@@ -37,15 +37,8 @@ const Header = () => {
 							Blogs
 						</NavLink>
 					</li>
-					<li>
-						<NavLink
-							to='/about'
-							className={({ isActive }) => (isActive ? 'active' : 'default')}
-						>
-							About us
-						</NavLink>
-					</li>
-					<li>
+					
+					<li className='text-blue-500 hover:text-blue-800'>
 						<NavLink
 							to='/about'
 							className={({ isActive }) => (isActive ? 'active' : 'default')}
@@ -72,7 +65,7 @@ const Header = () => {
 									<div>
 										<Link to='/' className='inline-flex items-center'>
 											<UserGroupIcon className='h-6 w-6 text-blue-500' />
-											<span className='ml-2 text-xl font-bold tracking-wide text-gray-800 '>
+											<span className='ml-2 text-xl font-bold tracking-wide text-blue-900 '>
 												ShefCorner
 											</span>
 										</Link>
@@ -104,18 +97,11 @@ const Header = () => {
 												Blogs
 											</Link>
 										</li>
-										<li>
-											<Link
-												to='/about'
-												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
-											>
-												About Us
-											</Link>
-										</li>
+										
 										<li>
 											<Link
 												to='/login'
-												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+												className='font-medium tracking-wide text-blue-500 transition-colors duration-200 hover:text-blue-800'
 											>
 												Login
 											</Link>
