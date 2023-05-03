@@ -15,7 +15,7 @@ const Home = () => {
 						<div>
 							<h1 className="text-5xl py-8 font-bold">Know About ChefCorner!</h1>
 							<p className="py-4 text-lg lg:me-96 lg:pe-72">ChefCorner is a platform that connects talented chefs with customers who are looking for professional cooking services. The platform was created to make it easier for people to find and hire chefs for a variety of occasions, such as private dinners, corporate events, or even regular meal preparation.Customers can enjoy delicious meals prepared by professional chefs in the comfort of their own home.</p>
-							<button className="btn btn-primary">Let's Enjoy!!</button>
+							<button className="btn btn-primary">Let's Hire!!</button>
 						</div>
 					</div>
 				</div>
