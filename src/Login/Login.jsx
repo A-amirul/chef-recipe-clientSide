@@ -1,35 +1,56 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { getAuth,GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../firebase/firebase.config';
+import Header from '../components/Header';
+import { AuthContext } from '../providers/AuthProvider';
 
 
 
 
 const Login = () => {
-	const [user, setUser] = useState([]);
-	const auth = getAuth(app);
-	const provider = new GoogleAuthProvider();
+	const { signIn } = useContext(AuthContext);
+	// const [user, setUser] = useState({});
+	// const auth = getAuth(app);
+	// const provider = new GoogleAuthProvider();
 
-	const handleGoogleSignIn = () => {
-		signInWithPopup(auth, provider)
+	const handleLogin = event => {
+		event.preventDefault();
+		const form = event.target;
+		const email = form.email.value;
+		const password = form.password.value;
+		console.log(email, password);
+
+		signIn(email, password)
 			.then(result => {
 				const loggedUser = result.user;
-				setUser(loggedUser);
+				console.log(loggedUser);
+				navigate(from, { replace: true })
 			})
 			.catch(error => {
-			console.log('error',error.message);
-		})
+				console.log(error);
+			})
 	}
+
+	// const handleGoogleSignIn = () => {
+	// 	signInWithPopup(auth, provider)
+	// 		.then(result => {
+	// 			const loggedUser = result.user;
+	// 			setUser(loggedUser);
+	// 			console.log(loggedUser);
+	// 		})
+	// 		.catch(error => {
+	// 		console.log('error',error.message);
+	// 	})
+	// }
 
 	return (
 		<div>
-			<h2>Username:{user?.displayName}</h2>
 			<div className="hero min-h-screen bg-base-100">
 				<div className="hero-content flex-col">
 					<h2 className='text-2xl font-bold'>Please Login</h2>
-					<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+					<div onSubmit={handleLogin} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 						<div className="card-body px-16">
 							<div className="form-control">
 								<label className="label">
@@ -55,10 +76,10 @@ const Login = () => {
 						</div>
 					</div>
 
-					<div onClick={handleGoogleSignIn} className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300 bg-gray-100 font-bold'>
+					<div onClick={handleGoogleSignIn} className='flex justify-center items-center shadow-lg  px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
 						<FaGoogle></FaGoogle>	Login with google
 					</div>
-					<div  className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300 bg-gray-100 font-bold'>
+					<div  className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
 						<FaGithub></FaGithub>	Login with GitHub
 					</div>
 				</div>
@@ -67,4 +88,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+	export default Login;

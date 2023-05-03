@@ -6,7 +6,7 @@ import {
 	XMarkIcon,
 } from '@heroicons/react/24/solid'
 
-const Header = () => {
+const Header = ({user}) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	return (
 		<div className='bg-gray-100 px-4 py-5  sm:max-w-xl md:max-w-full lg:max-w-full md:px-24 lg:px-8 '>
@@ -44,7 +44,7 @@ const Header = () => {
 							className={({ isActive }) => (isActive ? 'active' : 'default')}
 						>
 							Login
-						</NavLink>
+						</NavLink> {user?.reloadUserInfo?.photoUrl}
 					</li>
 				</ul>
 				{/* Mobile Navbar Section */}
