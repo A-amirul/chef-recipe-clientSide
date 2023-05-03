@@ -5,6 +5,7 @@ import ErrorPage from "../components/ErrorPage";
 import Login from "../Login/Login";
 import Registration from "../Registration/Registration";
 import Blogs from "../components/Blogs";
+import RecipeDetails from "../components/RecipeDetails";
 
 const router = createBrowserRouter([
 	{
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
 			{
 				path: "/blogs",
 				element:<Blogs></Blogs>
+			},
+			{
+				path: "/chefs/:id",
+				element: <RecipeDetails></RecipeDetails>,
+				loader: ({ params }) => fetch(`http://localhost:3000/chefs/${params.id}`)
 			}
 		]
 	},
