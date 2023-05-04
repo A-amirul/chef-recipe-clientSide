@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../providers/AuthProvider';
+import { GoogleAuthProvider, getAuth, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
 
-
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
 
 
 const Login = () => {
@@ -21,13 +23,7 @@ const Login = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		console.log(email, password);
-		if (email !== createUser.email || password !== createUser.password) {
-			setError("Email or password is incorrect");
-		} else {
-			// handle successful login
-			setError("");
-		}
-
+		
 		signIn(email, password)
 			.then(result => {
 				const loggedUser = result.user;
@@ -35,21 +31,43 @@ const Login = () => {
 				navigate(from, { replace: true })
 			})
 			.catch(error => {
-				console.log(error);
+			  setError(error.message);
 			})
 	}
 
-	// const handleGoogleSignIn = () => {
-	// 	signInWithPopup(auth, provider)
-	// 		.then(result => {
-	// 			const loggedUser = result.user;
-	// 			setUser(loggedUser);
-	// 			console.log(loggedUser);
-	// 		})
-	// 		.catch(error => {
-	// 		console.log('error',error.message);
-	// 	})
-	// }
+	const handleGoogleSignIn = () => {
+		signInWithPopup(auth, provider)
+			.then((result) => {
+				loggedUser(result.user);
+			})
+			.catch((error) => {
+				setError(error.message);
+			});
+	};
+
+	const handleResetPassword = () => {
+		sendPasswordResetEmail(auth, email)
+			.then(() => { })
+			.catch((err) => {
+				setError(err.message);
+			});
+	};
+
+	const handleGithubSignIn = () => {
+		signInWithPopup(auth, githubProvider)
+			.then((result) => {
+				const { email, name, PhotoURL } = result.user;
+				const userInfo = {
+					name: name,
+					email: email,
+					photo: PhotoURL,
+				};
+				setLoggedInUser(userInfo);
+				setError("");
+			})
+			.catch((err) => setError(err.message));
+	};
+	console.log(loggedInUser);
 
 	return (
 		<div>
@@ -75,7 +93,7 @@ const Login = () => {
 									<div>Are you new user? <NavLink to="/register">Register</NavLink></div>
 								</label>
 								<label className="label">
-									<a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+										<NavLink onClick={handleResetPassword} href="#" className="label-text-alt link link-hover">Forgot password?</NavLink>
 								</label>
 							</div>
 							<div className="form-control mt-6">
@@ -85,10 +103,10 @@ const Login = () => {
 						</div>
 					</form>
 
-					<div className='flex justify-center items-center shadow-lg  px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
+					<div onClick={handleGoogleSignIn} className='flex justify-center items-center shadow-lg  px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
 						<FaGoogle></FaGoogle>	Login with google
 					</div>
-					<div  className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
+					<div onClick={handleGithubSignIn} className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
 						<FaGithub></FaGithub>	Login with GitHub
 					</div>
 				</div>

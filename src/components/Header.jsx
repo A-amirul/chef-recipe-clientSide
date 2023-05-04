@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import {
 	UserGroupIcon,
 	Bars3BottomRightIcon,
 	XMarkIcon,
 } from '@heroicons/react/24/solid'
+import { AuthContext } from '../providers/AuthProvider'
 
-const Header = ({user}) => {
+
+const Header = () => {
+	const { user } = useContext(AuthContext);
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	return (
 		<div className='bg-gray-100 px-4 py-5  sm:max-w-xl md:max-w-full lg:max-w-full md:px-24 lg:px-8 '>
@@ -103,7 +106,7 @@ const Header = ({user}) => {
 												to='/login'
 												className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-blue-900'
 											>
-												Login
+												{user?.reloadUserInfo?.photoUrl}
 											</Link>
 										</li>
 									</ul>

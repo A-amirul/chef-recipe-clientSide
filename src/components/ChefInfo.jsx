@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-daisyui';
-import { FaHeart } from "react-icons/fa";
+import { FaThumbsUp } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
 const ChefInfo = ({ chef }) => {
@@ -19,7 +19,7 @@ const ChefInfo = ({ chef }) => {
 					<p>Number of Recipes: {chef.recipes.length}</p>
 					<p>Experience: {chef.experience_years
 					} Years </p>
-					<p className='flex items-center gap-x-2'>{chef.likes}<FaHeart></FaHeart></p>
+					<p className='flex items-center gap-x-2'>{chef.likes}<FaThumbsUp className='text-blue-500'></FaThumbsUp></p>
 					<Card.Actions className="justify-end">
 						<NavLink to={`/chefs/${chef.id}`}><button className="btn btn-primary">View Recipes </button></NavLink>
 					</Card.Actions>
