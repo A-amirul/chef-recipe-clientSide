@@ -14,7 +14,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	console.log('login page location', location);
-	const from = location.state?.from?.pathname || '/';
+	const from = location?.state?.from?.pathname || '/chefs/${user.id}'
 
 	const handleLogin = event => {
 		event.preventDefault();
