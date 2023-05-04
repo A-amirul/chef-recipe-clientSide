@@ -16,7 +16,7 @@ const ChefInfo = ({ chef }) => {
 				<Card.Body>
 					<Card.Title tag="h2">{chef.name}</Card.Title>
 					<p>{chef.bio}</p>
-					<p>Number of Recipes: {chef.recipes.length}</p>
+					<p>Number of Recipes: {chef?.recipes?.length}</p>
 					<p>Experience: {chef.experience_years
 					} Years </p>
 					<p className='flex items-center gap-x-2'>{chef.likes}<FaThumbsUp className='text-blue-500'></FaThumbsUp></p>

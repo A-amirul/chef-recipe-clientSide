@@ -18,7 +18,7 @@ const RecipeDetails = () => {
 					<Card.Body>
 						<Card.Title tag="h2">{name}</Card.Title>
 						<p>{bio}</p>
-						<p>Number of Recipes: {recipes.length}</p>
+						<p>Number of Recipes: {recipes?.length}</p>
 						<p>Experience: {experience_years
 						} Years </p>
 						<p className='flex items-center gap-x-2'>{likes}<FaThumbsUp className='text-blue-600'></FaThumbsUp></p>
