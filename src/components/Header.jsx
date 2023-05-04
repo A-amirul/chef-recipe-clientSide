@@ -6,11 +6,20 @@ import {
 	XMarkIcon,
 } from '@heroicons/react/24/solid'
 import { AuthContext } from '../providers/AuthProvider'
+import { Avatar } from 'daisyui';
 
 
 const Header = () => {
-	const { user } = useContext(AuthContext);
-	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const { user, logOut } = useContext(AuthContext);
+
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	
+
+	const handleLogOut = () => {
+		logOut();
+	}
+
 	return (
 		<div className='bg-gray-100 px-4 py-5  sm:max-w-xl md:max-w-full lg:max-w-full md:px-24 lg:px-8 '>
 			<div className='relative flex items-center justify-between'>
@@ -40,14 +49,26 @@ const Header = () => {
 							Blogs
 						</NavLink>
 					</li>
-					
-					<li className='text-blue-700 hover:text-blue-900'>
+					<li>
 						<NavLink
 							to='/login'
 							className={({ isActive }) => (isActive ? 'active' : 'default')}
 						>
-							Login
-						</NavLink> {user?.reloadUserInfo?.photoUrl}
+
+						</NavLink>
+					</li>
+					
+
+					<li className='text-blue-700 hover:text-blue-900'>
+						{user ? <img onClick={handleLogOut} 
+							className='w-8 h-8 rounded-full' src={user.reloadUserInfo.photoUrl} alt="" 
+
+							/> : <NavLink
+							to='/login'
+							className={({ isActive }) => (isActive ? 'active' : 'default')}
+						> Login</NavLink>
+						}
+
 					</li>
 				</ul>
 				{/* Mobile Navbar Section */}
@@ -100,13 +121,21 @@ const Header = () => {
 												Blogs
 											</Link>
 										</li>
-										
+										<li>
+											<Link
+												to='/login'
+												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
+											>
+
+											</Link>
+										</li>
+
 										<li>
 											<Link
 												to='/login'
 												className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-blue-900'
 											>
-												{user?.reloadUserInfo?.photoUrl}
+												{user ? user : "Login"}
 											</Link>
 										</li>
 									</ul>

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../providers/AuthProvider';
-import { GoogleAuthProvider, getAuth, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
@@ -10,12 +10,12 @@ const auth = getAuth();
 
 const Login = () => {
 	const [error, setError] = useState('');
-	const { signIn,createUser } = useContext(AuthContext);
+	const { signIn } = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const location = useLocation();
 	console.log('login page location', location);
-	const from = location.state?.from?.pathname || '/'
+	const from = location.state?.from?.pathname || '/';
 
 	const handleLogin = event => {
 		event.preventDefault();
@@ -38,7 +38,9 @@ const Login = () => {
 	const handleGoogleSignIn = () => {
 		signInWithPopup(auth, provider)
 			.then((result) => {
-				loggedUser(result.user);
+				const loggedUser = result.user;
+				console.log(loggedUser);
+				navigate(from, { replace: true })
 			})
 			.catch((error) => {
 				setError(error.message);
@@ -49,25 +51,11 @@ const Login = () => {
 		sendPasswordResetEmail(auth, email)
 			.then(() => { })
 			.catch((err) => {
-				setError(err.message);
+				console.log(err.message);
 			});
 	};
 
-	const handleGithubSignIn = () => {
-		signInWithPopup(auth, githubProvider)
-			.then((result) => {
-				const { email, name, PhotoURL } = result.user;
-				const userInfo = {
-					name: name,
-					email: email,
-					photo: PhotoURL,
-				};
-				setLoggedInUser(userInfo);
-				setError("");
-			})
-			.catch((err) => setError(err.message));
-	};
-	console.log(loggedInUser);
+	
 
 	return (
 		<div>
@@ -106,7 +94,7 @@ const Login = () => {
 					<div onClick={handleGoogleSignIn} className='flex justify-center items-center shadow-lg  px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
 						<FaGoogle></FaGoogle>	Login with google
 					</div>
-					<div onClick={handleGithubSignIn} className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
+					<div className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
 						<FaGithub></FaGithub>	Login with GitHub
 					</div>
 				</div>

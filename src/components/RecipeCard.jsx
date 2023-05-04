@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Card} from 'react-daisyui';
-import { NavLink } from 'react-router-dom';
-import { FaHeart, FaRegStar, FaStar } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from 'react-rating';
 
 const RecipeCard = ({ recipe }) => {
