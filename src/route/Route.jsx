@@ -6,6 +6,7 @@ import Login from "../Login/Login";
 import Registration from "../Registration/Registration";
 import Blogs from "../components/Blogs";
 import RecipeDetails from "../components/RecipeDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
 	{
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/chefs/:id",
-				element: <RecipeDetails></RecipeDetails>,
+				element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
 				loader: ({ params }) => fetch(`https://the-chef-recipe-corner-server-a-amirul.vercel.app/chefs/${params.id}`)
 			}
 		]

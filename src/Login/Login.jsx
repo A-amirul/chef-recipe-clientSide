@@ -12,7 +12,6 @@ const Login = () => {
 	const [error, setError] = useState('');
 	const { signIn } = useContext(AuthContext);
 	const navigate = useNavigate();
-
 	const location = useLocation();
 	console.log('login page location', location);
 	const from = location.state?.from?.pathname || '/';

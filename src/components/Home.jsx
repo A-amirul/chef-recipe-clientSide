@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefInfo from './ChefInfo';
 
@@ -28,6 +28,7 @@ const Home = () => {
 					data?.map(chef =>
 
 						<ChefInfo
+							
 							key={chef.id}
 							chef={chef}
 						></ChefInfo>

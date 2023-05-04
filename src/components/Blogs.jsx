@@ -3,6 +3,7 @@ import React from 'react';
 const Blogs = () => {
 	return (
 		<div className='mx-16 md:mx-24 my-8'>
+			<button className="btn btn-secondary">Button</button>
 			<div>
 				<h2 className='text-2xl font-semibold py-4'>Tell us the differences between uncontrolled and controlled components.</h2>
 				<p> <strong>Uncontrolled Components:</strong>

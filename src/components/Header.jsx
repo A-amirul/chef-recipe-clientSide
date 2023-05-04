@@ -17,7 +17,9 @@ const Header = () => {
 	
 
 	const handleLogOut = () => {
-		logOut();
+		logOut()
+			.then()
+		.catch(error=>console.log(error))
 	}
 
 	return (
@@ -61,7 +63,7 @@ const Header = () => {
 
 					<li className='text-blue-700 hover:text-blue-900'>
 						{user ? <img onClick={handleLogOut} 
-							className='w-8 h-8 rounded-full' src={user.reloadUserInfo.photoUrl} alt="" 
+							className='w-8 h-8 rounded-full' title={user.reloadUserInfo.displayName} src={user.reloadUserInfo.photoUrl} alt="" 
 
 							/> : <NavLink
 							to='/login'
