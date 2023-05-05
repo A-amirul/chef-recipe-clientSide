@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefInfo from './ChefInfo';
+import { AuthContext } from '../providers/AuthProvider';
+import { Circles } from 'react-loader-spinner';
 
 
 const Home = () => {
 	const data = useLoaderData();
+	const { loading } = useContext(AuthContext);
+	if (loading) {
+		return <Circles
+			height="80"
+			width="80"
+			color="#4fa94d"
+			ariaLabel="circles-loading"
+			wrapperStyle={{}}
+			wrapperClass=""
+			visible={true}
+		/>
+	}
 
 	return (
 		<div>

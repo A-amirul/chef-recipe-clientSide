@@ -2,13 +2,25 @@ import React, { useState } from 'react';
 import { Card} from 'react-daisyui';
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from 'react-rating';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeCard = ({ recipe }) => {
-	console.log(recipe);
 	const [isDisabled, setIsDisabled] = useState(false);
+	
+	const handleClick = () => {
+		toast.success('Successfully added as favorite!');
+	};
+
 	const handleFavorite = () => {
+		handleClick();
 		setIsDisabled(true);
+
+
 	}
+
+
+
 	return (
 		<div className=' ms-2'>
 			<div className="m-8">
@@ -37,7 +49,8 @@ const RecipeCard = ({ recipe }) => {
 							<p className='ms-2 font-bold'> {recipe?.rating}</p>
 						</div>
 						<Card.Actions className="justify-end">
-							
+
+							<ToastContainer />
 								<button onClick={handleFavorite} className={`bg-blue-500 text-white py-2 px-4 rounded ${isDisabled ? 'disabled opacity-50 cursor-not-allowed' : ''}`}>Favorites </button>
 								
 						
