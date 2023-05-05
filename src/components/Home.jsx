@@ -3,6 +3,8 @@ import { useLoaderData } from 'react-router-dom';
 import ChefInfo from './ChefInfo';
 import { AuthContext } from '../providers/AuthProvider';
 import { Circles } from 'react-loader-spinner';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Home = () => {
@@ -19,6 +21,10 @@ const Home = () => {
 			visible={true}
 		/>
 	}
+
+	const handleClick = () => {
+		toast.success('Successfully added To the card!');
+	};
 
 	return (
 		<div>
@@ -70,12 +76,13 @@ const Home = () => {
 								</div>
 
 							</div>
+							<ToastContainer></ToastContainer>
 							<h2 className='text-2xl font-bold py-4'>Spaghetti Bolognese</h2>
 							<p className="text-[0.85rem] opacity-70 mb-4">
 								Spaghetti Bolognese, also known as spaghetti with meat sauce, is a classic Italian dish that has become popular around the world. The dish consists of spaghetti noodles served with a tomato-based meat sauce.
 								To make spaghetti Bolognese, ground beef is typically browned in a large pot with onions, garlic, and other seasonings. Then, canned or fresh tomatoes are added along with tomato paste, herbs, and spices. The sauce is then simmered for a period of time to allow the flavors to meld together.
 							</p>
-							<div className="flex items-center justify-between">
+							<div onClick={handleClick} className="flex items-center justify-between">
 								<span className="text-xl font-semibold"> </span>
 								<span className="cursor-pointer p-3 btn">Add to Cart</span>
 							</div>
@@ -97,7 +104,7 @@ const Home = () => {
 							</p>
 							<div className="flex items-center justify-between">
 								<span className="text-xl font-semibold"> </span>
-								<span className="cursor-pointer p-3 btn">Add to Cart</span>
+								<span onClick={handleClick} className="cursor-pointer p-3 btn">Add to Cart</span>
 							</div>
 						</div>
 						<div
@@ -118,7 +125,7 @@ const Home = () => {
 							</p>
 							<div className="flex items-center justify-between">
 								<span className="text-xl font-semibold"> </span>
-								<span className="cursor-pointer p-3 btn">Add to Cart</span>
+								<span onClick={handleClick} className="cursor-pointer p-3 btn">Add to Cart</span>
 							</div>
 						</div>
 						<div
@@ -139,7 +146,7 @@ const Home = () => {
 							</p>
 							<div className="flex items-center justify-between">
 								<span className="text-xl font-semibold"> </span>
-								<span className="cursor-pointer p-3 btn">Add to Cart</span>
+								<span onClick={handleClick} className="cursor-pointer p-3 btn">Add to Cart</span>
 							</div>
 						</div>
 
