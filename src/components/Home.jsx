@@ -36,13 +36,13 @@ const Home = () => {
 				}
 			</div>
 
-			<div>
-				<div className="hero min-h-screen bg-base-200">
+			{/* <div>
+				<div className="grid md:grid-cols-2 bg-base-200">
 					<div className="hero-content flex-col lg:flex-row-reverse">
 						<img src="https://i.ibb.co/pb0Xp9F/food.jpg" className="max-w-sm rounded-lg shadow-2xl" />
 						<div>
 							<h1 className="text-5xl font-bold">About Services of ChefCorner</h1>
-							<p className="py-6">ChefCorner provide expert Chefs/Cooks for Kathi Rolls, Shawarma, Tandoor, Alfam, Berger, Pizza, Sandwich, Momos. We also provide our service for Cakes and Sweets.</p>
+							<p className="w-50">ChefCorner provide expert Chefs/Cooks for Kathi Rolls, Shawarma, Tandoor, Alfam, Berger, Pizza, Sandwich, Momos. We also provide our service for Cakes and Sweets.</p>
 							<li>We provide highly efficient and experienced chefs who can work under the demanding environment.</li>
 							<li> Tell your favorite and sit back and let the chef do his magic with specifications.</li>
 							<li>Available Chefs/Cooks for Fine Dining on requirements, expertise to design fancy menus as and when required.</li>
@@ -50,7 +50,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 
 			<h1 className="text-5xl font-bold py-5 text-center bg-gray-200">Our Clients</h1>
@@ -59,10 +59,10 @@ const Home = () => {
 			<div className='bg-gray-200 p-8'>
 
 				<div className='grid mx-auto md:grid-cols-4 gap-4'>
-					<img className='img-fluid' src="https://i.ibb.co/GQVmHPv/download.jpg" alt="" />
-					<img className='img-fluid' src="https://i.ibb.co/7vgbhpC/3.jpg" alt="" />
-					<img className='img-fluid' src="https://i.ibb.co/170YVq0/4.png" alt="" />
-					<img className='img-fluid' src="https://i.ibb.co/48z79FL/5.jpg" alt="" />
+					<img className='img-fluid mx-auto' src="https://i.ibb.co/GQVmHPv/download.jpg" alt="" />
+					<img className='img-fluid mx-auto' src="https://i.ibb.co/7vgbhpC/3.jpg" alt="" />
+					<img className='img-fluid mx-auto' src="https://i.ibb.co/170YVq0/4.png" alt="" />
+					<img className='img-fluid mx-auto' src="https://i.ibb.co/48z79FL/5.jpg" alt="" />
 				</div>
 
 

@@ -23,7 +23,7 @@ const Header = () => {
 	}
 
 	return (
-		<div className='bg-gray-100 px-4 py-5  sm:max-w-xl md:max-w-full lg:max-w-full md:px-24 lg:px-8 '>
+		<div className='bg-gray-100 px-4 py-5  sm:max-w-xl md:max-w-full  md:px-24 lg:px-8 '>
 			<div className='relative flex items-center justify-between'>
 				{/* Logo Section */}
 				<Link to='/' className='inline-flex items-center'>
@@ -63,7 +63,7 @@ const Header = () => {
 
 					<li className='text-blue-700 hover:text-blue-900'>
 						{user ? <img onClick={handleLogOut} 
-							className='w-8 h-8 rounded-full' title={user.reloadUserInfo.displayName} src={user.reloadUserInfo.photoUrl} alt="" 
+							className='w-8 h-8 rounded-full' title={user?.reloadUserInfo?.displayName} src={user?.reloadUserInfo?.photoUrl} alt="" 
 
 							/> : <NavLink
 							to='/login'
@@ -124,22 +124,20 @@ const Header = () => {
 											</Link>
 										</li>
 										<li>
-											<Link
-												to='/login'
-												className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400'
-											>
+											<li className='text-blue-700 hover:text-blue-900'>
+												{user ? <img onClick={handleLogOut}
+													className='w-8 h-8 rounded-full' title={user?.reloadUserInfo?.displayName} src={user?.reloadUserInfo?.photoUrl} alt=""
 
-											</Link>
+												/> : <NavLink
+													to='/login'
+													className={({ isActive }) => (isActive ? 'active' : 'default')}
+												> Login</NavLink>
+												}
+
+											</li>
 										</li>
 
-										<li>
-											<Link
-												to='/login'
-												className='font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-blue-900'
-											>
-												{user ? user : "Login"}
-											</Link>
-										</li>
+										
 									</ul>
 								</nav>
 							</div>

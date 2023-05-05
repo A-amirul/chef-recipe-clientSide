@@ -2,18 +2,20 @@ import React, { useContext, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../providers/AuthProvider';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
-const provider = new GoogleAuthProvider();
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
 
 
 const Login = () => {
 	const [error, setError] = useState('');
+	const [user, setUser] = useState({});
 	const { signIn } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
-	console.log('login page location', location);
+	// console.log('login page location', location);
 	const from = location?.state?.from?.pathname || '/'
 
 	const handleLogin = event => {
@@ -21,12 +23,12 @@ const Login = () => {
 		const form = event.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
+		// console.log(email, password);
 		
 		signIn(email, password)
 			.then(result => {
 				const loggedUser = result.user;
-				console.log(loggedUser);
+				setUser(loggedUser);
 				navigate(from, { replace: true })
 			})
 			.catch(error => {
@@ -46,11 +48,23 @@ const Login = () => {
 			});
 	};
 
+	const handleGitHubSignIn = () => {
+		signInWithPopup(auth, gitHubProvider)
+			.then(result => {
+				const loggedInUser = result.user;
+				setUser(loggedInUser);
+				navigate(from, { replace: true })
+			})
+			.catch(error => {
+				setError(error.message);
+		})
+	}
+
 	const handleResetPassword = () => {
 		sendPasswordResetEmail(auth, email)
 			.then(() => { })
 			.catch((err) => {
-				console.log(err.message);
+				setError(err.message);
 			});
 	};
 
@@ -90,11 +104,13 @@ const Login = () => {
 						</div>
 					</form>
 
-					<div onClick={handleGoogleSignIn} className='flex justify-center items-center shadow-lg  px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
-						<FaGoogle></FaGoogle>	Login with google
-					</div>
-					<div className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
-						<FaGithub></FaGithub>	Login with GitHub
+					<div>
+						<div onClick={handleGoogleSignIn} className='flex justify-center items-center shadow-lg  px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
+							<FaGoogle></FaGoogle>	Login with google
+						</div>
+						<div onClick={handleGitHubSignIn} className='flex justify-center items-center shadow-lg px-28 py-3 rounded-lg hover:bg-slate-300  font-bold'>
+							<FaGithub></FaGithub>	Login with GitHub
+						</div>
 					</div>
 				</div>
 			</div>
