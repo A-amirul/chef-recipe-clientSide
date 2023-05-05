@@ -51,12 +51,12 @@ const Home = () => {
 			</div>
 
 
-			<div className="section">
+			<div className="section bg-gray-200">
 				<div className="flex flex-col items-center">
 					<div className="text-3xl text-center font-bold my-16 md:px-10">
 						Most selling Recipe
 					</div>
-					<div className="grid  md:grid-cols-2 gap-8 mb-16">
+					<div className="grid  md:grid-cols-2 gap-8 mb-16 bg-gray-100">
 
 
 						<div
