@@ -50,21 +50,104 @@ const Home = () => {
 				}
 			</div>
 
-			{/* <div>
-				<div className="grid md:grid-cols-2 bg-base-200">
-					<div className="hero-content flex-col lg:flex-row-reverse">
-						<img src="https://i.ibb.co/pb0Xp9F/food.jpg" className="max-w-sm rounded-lg shadow-2xl" />
-						<div>
-							<h1 className="text-5xl font-bold">About Services of ChefCorner</h1>
-							<p className="w-50">ChefCorner provide expert Chefs/Cooks for Kathi Rolls, Shawarma, Tandoor, Alfam, Berger, Pizza, Sandwich, Momos. We also provide our service for Cakes and Sweets.</p>
-							<li>We provide highly efficient and experienced chefs who can work under the demanding environment.</li>
-							<li> Tell your favorite and sit back and let the chef do his magic with specifications.</li>
-							<li>Available Chefs/Cooks for Fine Dining on requirements, expertise to design fancy menus as and when required.</li>
-							<li>Providing trained domestic cooks for your home. Their skills can be fine tuned as per your requirement.</li>
-						</div>
+
+			<div className="section">
+				<div className="flex flex-col items-center">
+					<div className="text-3xl text-center font-bold my-16 md:px-10">
+						Most selling Recipe
 					</div>
+					<div className="grid  md:grid-cols-2 gap-8 mb-16">
+
+
+						<div
+							className=" p-4 shadow-lg hover:shadow transition-all duration-300 cursor-pointer"
+
+						>
+							<img src='https://i.ibb.co/HBdDMyv/food2.jpg' alt="" className="rounded-lg mb-4 w-96 mx-auto" />
+							<div className="flex justify-between mb-4">
+								<div className="md:text-xl text-[1rem] font-semibold">
+
+								</div>
+
+							</div>
+							<h2 className='text-2xl font-bold py-4'>Spaghetti Bolognese</h2>
+							<p className="text-[0.85rem] opacity-70 mb-4">
+								Spaghetti Bolognese, also known as spaghetti with meat sauce, is a classic Italian dish that has become popular around the world. The dish consists of spaghetti noodles served with a tomato-based meat sauce.
+								To make spaghetti Bolognese, ground beef is typically browned in a large pot with onions, garlic, and other seasonings. Then, canned or fresh tomatoes are added along with tomato paste, herbs, and spices. The sauce is then simmered for a period of time to allow the flavors to meld together.
+							</p>
+							<div className="flex items-center justify-between">
+								<span className="text-xl font-semibold"> </span>
+								<span className="cursor-pointer p-3 btn">Add to Cart</span>
+							</div>
+						</div>
+						<div
+							className=" p-4 shadow-lg hover:shadow transition-all duration-300 cursor-pointer"
+
+						>
+							<img src='https://i.ibb.co/L9W4fCW/food6.jpg' alt="" className="rounded-lg mb-4 w-96 mx-auto" />
+							<div className="flex justify-between mb-4">
+								<div className="md:text-xl text-[1rem] font-semibold">
+
+								</div>
+
+							</div>
+							<h2 className='text-2xl font-bold py-4'>Beef Stroganoff</h2>
+							<p className="text-[0.85rem] opacity-70 mb-4">
+								While Classic Beef Stroganoff is a comforting and satisfying dish, it can also be adapted to suit different dietary preferences. Additionally, gluten-free noodles can be used to make the dish suitable for those with gluten sensitivities.Once the sauce is ready, the cooked egg noodles or rice are added to the skillet and tossed with the beef and sauce. The dish can be garnished with chopped parsley, chives, or other herbs to add extra flavor and freshness.
+							</p>
+							<div className="flex items-center justify-between">
+								<span className="text-xl font-semibold"> </span>
+								<span className="cursor-pointer p-3 btn">Add to Cart</span>
+							</div>
+						</div>
+						<div
+							className=" p-4 shadow-lg hover:shadow transition-all duration-300 cursor-pointer"
+
+						>
+							<img src='https://i.ibb.co/0s5rvMw/food7.jpg' alt="" className="rounded-lg mb-4 w-96 mx-auto" />
+							<div className="flex justify-between mb-4">
+								<div className="md:text-xl text-[1rem] font-semibold">
+
+								</div>
+
+							</div>
+							<h2 className='text-2xl font-bold py-8'>Roast chicken</h2>
+							<p className="text-[0.85rem] opacity-70 mb-4">
+								Roast chicken is a classic dish that is popular around the world. It is a simple yet flavorful way to cook chicken, and can be served as a main dish for dinner or as part of a larger meal.
+								To make roast chicken, a whole chicken is typically seasoned with salt, pepper, and other herbs and spices such as rosemary, thyme, or garlic. The chicken is then placed in a roasting pan and roasted in the oven until it is cooked through and the skin is crispy and golden brown.
+							</p>
+							<div className="flex items-center justify-between">
+								<span className="text-xl font-semibold"> </span>
+								<span className="cursor-pointer p-3 btn">Add to Cart</span>
+							</div>
+						</div>
+						<div
+							className=" p-4 shadow-lg hover:shadow transition-all duration-300 cursor-pointer"
+
+						>
+							<img src='https://i.ibb.co/SrvkZk2/food.jpg' alt="" className="rounded-lg mb-4 w-96 mx-auto" />
+							<div className="flex justify-between mb-4">
+								<div className="md:text-xl text-[1rem] font-semibold">
+
+								</div>
+
+							</div>
+							<h2 className='text-2xl font-bold py-4'>French fries</h2>
+							<p className="text-[0.85rem] opacity-70 mb-4">
+								Today, French fries are a ubiquitous part of fast food culture and are often served with ketchup, mayonnaise, or other sauces. They are also commonly seasoned with salt, pepper, or other spices.
+								While French fries can be a tasty treat, they are also high in calories, sodium, and unhealthy fats when consumed in large amounts. Moderation is key when it comes to enjoying this classic fast food item.
+							</p>
+							<div className="flex items-center justify-between">
+								<span className="text-xl font-semibold"> </span>
+								<span className="cursor-pointer p-3 btn">Add to Cart</span>
+							</div>
+						</div>
+
+
+					</div>
+
 				</div>
-			</div> */}
+			</div>
 
 
 			<h1 className="text-5xl font-bold py-5 text-center bg-gray-200">Our Clients</h1>
