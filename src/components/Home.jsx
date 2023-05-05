@@ -23,7 +23,7 @@ const Home = () => {
 	}
 
 	const handleClick = () => {
-		toast.success('Successfully added To the card!');
+		toast.success('Successfully added To the cart!');
 	};
 
 	return (
